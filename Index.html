@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>सब्ज़ी बाज़ार ऑनलाइन</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+    header { background: green; color: white; padding: 20px; text-align: center; }
+    .products { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+    .card { background: white; width: 200px; margin: 15px; padding: 15px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .card img { width: 100%; border-radius: 8px; }
+    .card h3 { margin: 10px 0 5px; }
+    .card p { margin: 0; color: green; font-weight: bold; }
+    .order-form { max-width: 400px; margin: 30px auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .order-form h2 { text-align: center; }
+    .order-form input, .order-form textarea { width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    .order-form button { background: green; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; }
+    footer { background: #222; color: white; text-align: center; padding: 10px; margin-top: 30px; }
+  </style>
+  <script>
+    function sendOrder() {
+      var name = document.getElementById('name').value;
+      var address = document.getElementById('address').value;
+      var items = document.getElementById('items').value;
+      var phone = "919988810210"; // अपना व्हाट्सएप नंबर यहां डालें (91 के बाद बिना + के)
+      var message = `नमस्ते, मेरा नाम: ${name}\nपता: ${address}\nमैं ऑर्डर करना चाहता हूँ:\n${items}`;
+      var whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>सब्ज़ी बाज़ार ऑनलाइन</h1>
+    <p>ताज़ी सब्ज़ियाँ सीधी आपके घर तक!</p>
+  </header>
+
+  <section class="products">
+    <div class="card">
+      <img src="https://source.unsplash.com/200x150/?tomato" alt="टमाटर">
+      <h3>टमाटर</h3>
+      <p>₹30/किलो</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/200x150/?potato" alt="आलू">
+      <h3>आलू</h3>
+      <p>₹20/किलो</p>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/200x150/?carrot" alt="गाजर">
+      <h3>गाजर</h3>
+      <p>₹40/किलो</p>
+    </div>
+  </section>
+
+  <section class="order-form">
+    <h2>ऑर्डर करें</h2>
+    <input type="text" id="name" placeholder="आपका नाम" required />
+    <input type="text" id="address" placeholder="आपका पता" required />
+    <textarea id="items" rows="4" placeholder="कौन-कौन सी सब्ज़ी चाहिए और कितनी मात्रा में" required></textarea>
+    <button onclick="sendOrder()">व्हाट्सएप से ऑर्डर भेजें</button>
+  </section>
+
+  <footer>
+    &copy; 2025 सब्ज़ी बाज़ार ऑनलाइन. सभी अधिकार सुरक्षित।
+  </footer>
+
+</body>
+</html>
